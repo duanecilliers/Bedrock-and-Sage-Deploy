@@ -2,7 +2,7 @@
 
 ## Usage
 
-Clone this repo into the root of your Bedrock project or add it as a submodule. `git clone git@bitbucket.org:signpost/bedrock-and-sage-deploy.git deploy` or `git submodule add git@bitbucket.org:signpost/bedrock-and-sage-deploy.git deploy`
+Clone this repo into the root of your Bedrock project or add it as a submodule. `git clone git@github.com:duanecilliers/Bedrock-and-Sage-Deploy.git deploy` or `git submodule add git@github.com:duanecilliers/Bedrock-and-Sage-Deploy.git deploy`
 
 You need to export the following variables `STAGING_REMOTE_HOST`, `STAGING_REMOTE_PATH`, `PRODUCTION_REMOTE_HOST`, `PRODUCTION_REMOTE_PATH` and `THEME_DIR`.
 
