@@ -48,34 +48,47 @@ if [ -z ${ENV} ]; then
   done
 fi
 
-
-function source_file() {
-  if [[ -e $1 ]]; then
-    source $1
-  else
-    echo "Can't find config file $1. Make sure you're running this script from htdocs"
-    exit 1
-  fi
-}
-
-
 #
-# Set deployment variables sourced from config files.
+# Define env variables.
 #
 if [ "$ENV" == "staging" ]; then
-  source_file "$PWD/deploy/staging.conf"
+
+  if [ -z ${STAGING_REMOTE_HOST} ]; then
+    echo '$STAGING_REMOTE_HOST is not set'
+    exit 1
+  else
+    REMOTE_HOST=$STAGING_REMOTE_HOST
+  fi
+
+  if [ -z ${STAGING_REMOTE_PATH} ]; then
+    echo '$STAGING_REMOTE_PATH is not set'
+    exit 1
+  else
+    REMOTE_PATH=$STAGING_REMOTE_PATH
+  fi
+
 elif [ "$ENV" == "production" ]; then
-  source_file "$PWD/deploy/production.conf"
-else
-  echo "No environment was specified!"
-  exit 1
+
+  if [ -z ${PRODUCTION_REMOTE_HOST} ]; then
+    echo '$PRODUCTION_REMOTE_HOST is not set'
+    exit 1
+  else
+    REMOTE_HOST=$PRODUCTION_REMOTE_HOST
+  fi
+
+  if [ -z ${PRODUCTION_REMOTE_PATH} ]; then
+    echo '$PRODUCTION_REMOTE_PATH is not set'
+    exit 1
+  else
+    REMOTE_PATH=$PRODUCTION_REMOTE_PATH
+  fi
+
 fi
 
-
-#
-# Source general config file
-#
-source_file "$PWD/deploy/general.conf"
+if [ -z ${THEME_DIR} ]; then
+  echo '$THEME_DIR is not set'
+  exit 1
+fi
 
 
 #
