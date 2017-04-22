@@ -4,7 +4,7 @@
 
 * Clone this repo into the root of your Bedrock project or add it as a submodule. `git clone git@bitbucket.org:signpost/bedrock-and-sage-deploy.git deploy` or `git submodule add git@bitbucket.org:signpost/bedrock-and-sage-deploy.git deploy`
 * Copy `example-general.conf` to `general.conf` and update the theme path.
-* Copy `example-env.conf` to `env.conf` and update the remote host and path.
+* Copy `example-env.conf` to `staging.conf` and `production.conf`, then update the remote host and path for both environments.
 
 To deploy run `./deploy/deploy.sh` from the root of your project. You will be prompted to choose an environment to deploy to.
 
